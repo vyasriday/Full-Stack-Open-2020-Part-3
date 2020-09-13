@@ -1,7 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
 
+app.use(cors());
 // json body response
 app.use(express.json());
 morgan.token('body', (req, res) => JSON.stringify(req.body));
@@ -28,7 +30,7 @@ function checkIfNameExists(name) {
 	return persons.find((person) => person.name === name);
 }
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 let persons = [
 	{
 		name: 'Hridayesh',
