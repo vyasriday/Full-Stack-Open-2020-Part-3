@@ -22,6 +22,8 @@ app.use(
 	})
 );
 
+app.use(express.static('build'))
+
 function generateId() {
 	return Math.floor(Math.random() * 100000 + 1);
 }
